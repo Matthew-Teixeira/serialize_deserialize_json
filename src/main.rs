@@ -19,10 +19,10 @@ struct Article {
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Todo {
-    userId: i32,
-    id: i32,
-    title: String,
-    completed: bool,
+    userId: Option<i32>,
+    id: Option<i32>,
+    title: Option<String>,
+    completed: Option<bool>,
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -49,6 +49,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let rust_struct = to_struct(&json_str)?;
     // println!("Deserialized Article: {:?}", rust_struct);
 
+
+/* ***************************************************************************************************************************** */
     /*    *****    Parse JSON from file and store in db   *****     */
 
     let start = Instant::now();
